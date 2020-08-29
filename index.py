@@ -1,6 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
+from actions import keep_going, select_folder, menu
 
 def list_files(rootpath):
   for root, dirs, files in os.walk(rootpath):
@@ -18,20 +19,6 @@ def greeting():
 def goodbye():
   print("Goodbye.")
 
-
-def menu():
-  print("**")
-  print("1. Select a directory")
-  print("2. Quit")
-  return input()
-
-def end_script():
-  raise SystemExit(0)
-
-def keep_going(decision):
-  return decision != "2" and decision != "quit" and decision != "q"
-
-
 def main():
   greeting()
   d = menu()
@@ -39,22 +26,22 @@ def main():
   pristine = True
 
   while keep_going(d):
-    if d == "1":
+    if select_folder(d):
+      print("Select directory when prompted...")
       if pristine:
         root = tk.Tk()
         root.withdraw()
         pristine = False
 
-      print("Select directory when prompted...")
-      home =  filedialog.askdirectory()
-      list_files(home)
+      root =  filedialog.askdirectory()
+      list_files(root)
 
       d = menu()
+
     else:
-      print("Invalid command")
+      print("Invalid command.")
       d = menu()
       
   goodbye()
-
 
 main()
