@@ -12,29 +12,49 @@ def list_files(rootpath):
       print(subindent + file)
 
 
-def main():
+def greeting():
   print("**Welcome to dirctory map")
-  print("**")
 
-  print(" ** Menu ** ")
+def goodbye():
+  print("Goodbye.")
+
+
+def menu():
+  print("**")
   print("1. Select a directory")
   print("2. Quit")
+  return input()
 
-  d = input()
+def end_script():
+  raise SystemExit(0)
 
-  if d == "2":
-    raise SystemExit(0)
-  elif d == "1":
-    root = tk.Tk()
-    root.withdraw()
-
-  print("Select your file...")
-  home =  filedialog.askdirectory()
-  list_files(home)
+def keep_going(decision):
+  return decision != "2" and decision != "quit" and decision != "q"
 
 
+def main():
+  greeting()
+  d = menu()
 
+  pristine = True
 
+  while keep_going(d):
+    if d == "1":
+      if pristine:
+        root = tk.Tk()
+        root.withdraw()
+        pristine = False
+
+      print("Select directory when prompted...")
+      home =  filedialog.askdirectory()
+      list_files(home)
+
+      d = menu()
+    else:
+      print("Invalid command")
+      d = menu()
+      
+  goodbye()
 
 
 main()
