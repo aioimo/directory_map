@@ -2,7 +2,9 @@ import os
 
 print "Welcome to the app\n"
 
-home = "/Users/anthony/Desktop/Tuscany"
+# sample = "/Users/anthony/Desktop/Tuscany"
+
+home = raw_input("Please enter the root directory: ")
 
 
 
