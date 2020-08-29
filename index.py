@@ -12,28 +12,29 @@ def list_files(rootpath):
       print(subindent + file)
 
 
+def main():
+  print("**Welcome to dirctory map")
+  print("**")
+
+  print(" ** Menu ** ")
+  print("1. Select a directory")
+  print("2. Quit")
+
+  d = input()
+
+  if d == "2":
+    raise SystemExit(0)
+  elif d == "1":
+    root = tk.Tk()
+    root.withdraw()
+
+  print("Select your file...")
+  home =  filedialog.askdirectory()
+  list_files(home)
 
 
 
-print("Welcome to dirctory map\n")
-d = input("Press y to select a directory, press n to quit: ")
-
-if d == "n":
-  raise SystemExit(0)
-elif d == "y":
-  root = tk.Tk()
-  root.withdraw()
 
 
 
-# home = print("Please enter the root directory: ")
-
-print("Select your file...")
-home =  filedialog.askdirectory()
-
-
-
-
-
-
-list_files(home)
+main()
