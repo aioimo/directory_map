@@ -26,3 +26,9 @@ def menu():
   print("2. Quit")
   return input()
 
+
+def greeting():
+  print("**Welcome to dirctory map")
+
+def goodbye():
+  print("Goodbye.")

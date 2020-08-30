@@ -1,7 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
-from actions import keep_going, select_folder, menu
+from actions import keep_going, select_folder, menu, greeting, goodbye
 
 def list_files(rootpath):
   for root, dirs, files in os.walk(rootpath):
@@ -10,14 +10,11 @@ def list_files(rootpath):
     print(indent + os.path.basename(root))
     subindent = " " * 4 * (level + 1)
     for file in files:
-      print(subindent + file)
+      file_path = os.path.join(root, file)
+      file_size = os.path.getsize(file_path)
+      print(subindent + file + "(" + str(file_size) +")")
 
 
-def greeting():
-  print("**Welcome to dirctory map")
-
-def goodbye():
-  print("Goodbye.")
 
 def main():
   greeting()
