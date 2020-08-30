@@ -1,7 +1,7 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
-from actions import keep_going, select_folder, menu, greeting, goodbye
+from actions import keep_going, select_folder, get_user_input, greeting, goodbye
 
 def list_files(rootpath):
   for root, dirs, files in os.walk(rootpath):
@@ -18,7 +18,7 @@ def list_files(rootpath):
 
 def main():
   greeting()
-  d = menu()
+  d = get_user_input()
 
   pristine = True
 
@@ -33,11 +33,11 @@ def main():
       root =  filedialog.askdirectory()
       list_files(root)
 
-      d = menu()
+      d = get_user_input()
 
     else:
       print("Invalid command.")
-      d = menu()
+      d = get_user_input()
       
   goodbye()
 
