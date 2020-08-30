@@ -20,7 +20,7 @@ def keep_going(decision):
 def select_folder(decision):
   return actions(decision) == SELECT
 
-def menu():
+def get_user_input():
   print("**")
   print("1. Select a directory")
   print("2. Quit")

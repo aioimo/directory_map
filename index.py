@@ -18,12 +18,12 @@ def list_files(rootpath):
 
 def main():
   greeting()
-  d = get_user_input()
+  action = get_user_input()
 
   pristine = True
 
-  while keep_going(d):
-    if select_folder(d):
+  while keep_going(action):
+    if select_folder(action):
       print("Select directory when prompted...")
       if pristine:
         root = tk.Tk()
@@ -33,11 +33,11 @@ def main():
       root =  filedialog.askdirectory()
       list_files(root)
 
-      d = get_user_input()
+      action = get_user_input()
 
     else:
       print("Invalid command.")
-      d = get_user_input()
+      action = get_user_input()
       
   goodbye()
 
