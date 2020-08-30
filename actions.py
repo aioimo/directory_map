@@ -5,20 +5,25 @@ QUIT = "quit"
 
 input_to_actions = {
   "1": SELECT,
+  "2": QUIT,
   "quit": QUIT,
   "q": QUIT,
-  "2": QUIT
+  "Q": QUIT,
+  "exit": QUIT
 }
 
 def actions(d):
   if d in input_to_actions:
     return input_to_actions[d]
 
+
 def keep_going(decision):
   return actions(decision) != QUIT
 
+
 def select_folder(decision):
   return actions(decision) == SELECT
+
 
 def get_user_input():
   print("**")
@@ -29,6 +34,7 @@ def get_user_input():
 
 def greeting():
   print("**Welcome to dirctory map")
+
 
 def goodbye():
   print("Goodbye.")
